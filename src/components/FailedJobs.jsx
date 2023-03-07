@@ -15,6 +15,7 @@ const FailedJobs = ({ jobs, setJobs }) => {
      * Find Job And Change Its Type To "failed"
      */
     const findJob = jobs.find((job) => job.id === item.id);
+    console.log({ jobs }, item.id);
     findJob.type = "failed";
 
     /**
@@ -26,6 +27,10 @@ const FailedJobs = ({ jobs, setJobs }) => {
      * Set Job Again With Updated Status
      */
     setJobs([...otherJobs, findJob]);
+    localStorage.setItem(
+      "dnd-board-items",
+      JSON.stringify([...otherJobs, findJob])
+    );
   };
   return (
     <div className="board-wrapper" ref={drop}>

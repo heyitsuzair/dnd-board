@@ -26,6 +26,10 @@ const CompletedJobs = ({ jobs, setJobs }) => {
      * Set Job Again With Updated Status
      */
     setJobs([...otherJobs, findJob]);
+    localStorage.setItem(
+      "dnd-board-items",
+      JSON.stringify([...otherJobs, findJob])
+    );
   };
 
   return (

@@ -17,8 +17,9 @@ const Job = ({ id, title, type, bg }) => {
   };
 
   return (
-    <div ref={drag} style={style}>
+    <div ref={drag} className="job" style={style}>
       {title}
+      <span onClick={() => alert("hello")}>x</span>
     </div>
   );
 };
