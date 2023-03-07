@@ -2,7 +2,7 @@ import React from "react";
 import Job from "./Job";
 import { useDrop } from "react-dnd";
 
-const InProgressJobs = ({ jobs, setJobs }) => {
+const InProgressJobs = ({ jobs, setJobs, deleteJob }) => {
   const inProgressJobs = jobs.filter((job) => job.type === "in progress");
 
   const [{ isOver }, drop] = useDrop(() => ({
@@ -37,7 +37,7 @@ const InProgressJobs = ({ jobs, setJobs }) => {
       <h3 className="board-heading">In Progress Jobs</h3>
       <div>
         {inProgressJobs.map((job) => {
-          return <Job bg="blue" {...job} key={job.id} />;
+          return <Job deleteJob={deleteJob} bg="blue" {...job} key={job.id} />;
         })}
       </div>
     </div>

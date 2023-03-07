@@ -2,7 +2,7 @@ import React from "react";
 import Job from "./Job";
 import { useDrop } from "react-dnd";
 
-const FailedJobs = ({ jobs, setJobs }) => {
+const FailedJobs = ({ jobs, setJobs, deleteJob }) => {
   const failedJobs = jobs.filter((job) => job.type === "failed");
 
   const [{ isOver }, drop] = useDrop(() => ({
@@ -15,7 +15,6 @@ const FailedJobs = ({ jobs, setJobs }) => {
      * Find Job And Change Its Type To "failed"
      */
     const findJob = jobs.find((job) => job.id === item.id);
-    console.log({ jobs }, item.id);
     findJob.type = "failed";
 
     /**
@@ -37,7 +36,7 @@ const FailedJobs = ({ jobs, setJobs }) => {
       <h3 className="board-heading">Failed Jobs</h3>
       <div>
         {failedJobs.map((job) => {
-          return <Job bg="red" {...job} key={job.id} />;
+          return <Job deleteJob={deleteJob} bg="red" {...job} key={job.id} />;
         })}
       </div>
     </div>

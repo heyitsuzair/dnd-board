@@ -5,6 +5,7 @@ const Modal = ({ closeModal, addJob }) => {
   const typeRef = useRef();
 
   const onAddJob = () => {
+    if (!titleRef.current.value) return "";
     addJob(titleRef.current.value, typeRef.current.value);
   };
 
