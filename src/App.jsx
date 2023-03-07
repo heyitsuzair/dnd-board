@@ -65,6 +65,7 @@ function App() {
     const storage = localStorage.getItem("dnd-board-items");
     if (!storage) {
       localStorage.setItem("dnd-board-items", JSON.stringify([]));
+      setIsLoading(false);
     } else {
       setJobs(JSON.parse(storage));
       setIsLoading(false);
